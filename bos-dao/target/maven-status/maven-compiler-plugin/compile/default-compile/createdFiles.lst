@@ -1,0 +1,6 @@
+com\csic\bos\dao\impl\StaffDaoImpl.class
+com\csic\bos\dao\IUserDao.class
+com\csic\bos\dao\impl\UserDaoImpl.class
+com\csic\bos\dao\IStaffDao.class
+com\csic\bos\dao\base\IBaseDao.class
+com\csic\bos\dao\base\impl\BaseDaoImpl.class

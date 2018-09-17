@@ -1,0 +1,5 @@
+com\csic\bos\domain\Region.class
+com\csic\bos\domain\User.class
+com\csic\bos\domain\Decidedzone.class
+com\csic\bos\domain\Subarea.class
+com\csic\bos\domain\Staff.class

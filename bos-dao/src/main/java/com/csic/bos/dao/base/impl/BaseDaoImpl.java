@@ -11,6 +11,7 @@
 package com.csic.bos.dao.base.impl;
 
 import com.csic.bos.dao.base.IBaseDao;
+import com.csic.bos.utils.PageBean;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -53,7 +54,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
      */
     @Resource
     public void setMySessionFactory(SessionFactory sessionFactory) {
-        super.setSessionFactory(sessionFactory);
+    	super.setSessionFactory(sessionFactory);
     }
 
     @Override
@@ -98,5 +99,10 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
 		}
 		//执行更新
 		query.executeUpdate();
+	}
+
+	@Override
+	public void pageQuery(PageBean pageBean) {
+
 	}
 }

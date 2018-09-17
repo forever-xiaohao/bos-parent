@@ -1,0 +1,4 @@
+com\csic\bos\web\action\UserAction.class
+com\csic\bos\web\interceptor\BOSLoginInterceptor.class
+com\csic\bos\web\action\base\BaseAction.class
+com\csic\bos\web\action\StaffAction.class
