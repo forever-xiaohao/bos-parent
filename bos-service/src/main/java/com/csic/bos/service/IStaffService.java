@@ -11,6 +11,7 @@
 package com.csic.bos.service;
 
 import com.csic.bos.domain.Staff;
+import com.csic.bos.utils.PageBean;
 
 /**
  * <一句话功能简述><br>
@@ -23,4 +24,6 @@ import com.csic.bos.domain.Staff;
 public interface IStaffService {
 
 	public void save(Staff model);
+
+	void pageQuery(PageBean pageBean);
 }

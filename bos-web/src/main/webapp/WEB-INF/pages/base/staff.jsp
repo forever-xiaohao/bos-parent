@@ -37,7 +37,29 @@
 	}
 	
 	function doDelete(){
-		alert("删除...");
+	    //获取数据表格中所有选中的行，返回数组对象
+		var rows = $("#grid").datagrid("getSelections");
+		if (rows.length == 0) {
+		    //没有选中记录，弹出提示
+            $.messager.alert("提示信息","请选择需要删除的取派员！");
+        }else {
+		    //选中了取派员,弹出确认框
+            $.messager.confirm("删除确认","你确定要删除选中的取派员吗？", function (r) {
+               if (r) {
+                   var array = new Array();
+                   //确定，发送请求
+                   //获取所有取派员的id
+                   for (var i = 0; i < rows.length; i++) {
+                       var staff = rows[i];//json对象
+                       var id = staff.id;
+                       array.push(id);
+                   }
+                   var ids = array.join(",");//1,2,3,4,5
+                   location.href = "staffAction_deleteBatch.action?ids=" + ids;
+               }
+            });
+
+        }
 	}
 	
 	function doRestore(){
@@ -56,7 +78,7 @@
 		handler : doAdd
 	}, {
 		id : 'button-delete',
-		text : '作废',
+		text : '删除',
 		iconCls : 'icon-cancel',
 		handler : doDelete
 	},{

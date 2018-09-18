@@ -13,6 +13,7 @@ package com.csic.bos.service.impl;
 import com.csic.bos.dao.IStaffDao;
 import com.csic.bos.domain.Staff;
 import com.csic.bos.service.IStaffService;
+import com.csic.bos.utils.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,5 +35,10 @@ public class StaffServiceImpl implements IStaffService {
 	@Override
 	public void save(Staff model) {
 		staffDao.save(model);
+	}
+
+	@Override
+	public void pageQuery(PageBean pageBean) {
+		staffDao.pageQuery(pageBean);
 	}
 }
