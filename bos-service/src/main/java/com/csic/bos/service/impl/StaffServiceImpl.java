@@ -57,4 +57,23 @@ public class StaffServiceImpl implements IStaffService {
 			}
 		}
 	}
+
+	/**
+	 * 根据id查询取派员
+	 * @param id
+	 * @return
+	 */
+	@Override
+	public Staff findById(String id) {
+		return staffDao.findById(id);
+	}
+
+	/**
+	 * 根据id修改取派员
+	 * @param staff
+	 */
+	@Override
+	public void update(Staff staff) {
+		staffDao.update(staff);
+	}
 }

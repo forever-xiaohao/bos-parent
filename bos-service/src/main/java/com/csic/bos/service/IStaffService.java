@@ -25,7 +25,11 @@ public interface IStaffService {
 
 	public void save(Staff model);
 
-	void pageQuery(PageBean pageBean);
+	public void pageQuery(PageBean pageBean);
 
-	void deleteBatch(String ids);
+	public void deleteBatch(String ids);
+
+	public Staff findById(String id);
+
+	public void update(Staff staff);
 }
