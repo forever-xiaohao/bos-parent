@@ -14,6 +14,7 @@ import com.csic.bos.dao.IStaffDao;
 import com.csic.bos.domain.Staff;
 import com.csic.bos.service.IStaffService;
 import com.csic.bos.utils.PageBean;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,5 +41,20 @@ public class StaffServiceImpl implements IStaffService {
 	@Override
 	public void pageQuery(PageBean pageBean) {
 		staffDao.pageQuery(pageBean);
+	}
+
+	/**
+	 * 取派员批量删除
+	 * 逻辑删除，将deltag改为1
+	 * @param ids  1,2,3,4
+	 */
+	@Override
+	public void deleteBatch(String ids) {
+		if (StringUtils.isNotBlank(ids)) {
+			String[] staffIds = ids.split(",");
+			for (String id : staffIds) {
+				staffDao.executeUpdate("staff.delete", id);
+			}
+		}
 	}
 }

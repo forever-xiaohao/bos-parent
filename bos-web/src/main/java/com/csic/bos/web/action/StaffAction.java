@@ -76,6 +76,20 @@ public class StaffAction extends BaseAction<Staff> {
 
 		return NONE;
 	}
+
+
+
+	/**属性驱动,接收页面提交的ids参数**/
+	private String ids;
+	/**
+	 * 取派员批量删除
+	 * @return
+	 */
+	public String deleteBatch() {
+		staffService.deleteBatch(ids);
+		return LIST;
+	}
+
 	public int getPage() {
 		return page;
 	}
@@ -90,6 +104,13 @@ public class StaffAction extends BaseAction<Staff> {
 
 	public void setRows(int rows) {
 		this.rows = rows;
+	}
+	public String getIds() {
+		return ids;
+	}
+
+	public void setIds(String ids) {
+		this.ids = ids;
 	}
 
 }

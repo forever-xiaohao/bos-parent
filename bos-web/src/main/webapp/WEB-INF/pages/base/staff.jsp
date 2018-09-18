@@ -122,7 +122,7 @@
 			if(data=="0"){
 				return "正常使用"
 			}else{
-				return "已作废";
+				return "已删除";
 			}
 		}
 	}, {
