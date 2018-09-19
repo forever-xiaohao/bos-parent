@@ -3,6 +3,7 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+    <constant name="struts.i18n.encodeing" value="utf-8"/>
     <!--定义开发模式-->
     <constant name="struts.devMode" value="false" />
     <!--
@@ -45,6 +46,9 @@
         <!--取派员管理-->
         <action name="staffAction_*" class="staffAction" method="{1}">
             <result name="list">/WEB-INF/pages/base/staff.jsp</result>
+        </action>
+        <!--区域管理-->
+        <action name="regionAction_*" class="regionAction" method="{1}">
         </action>
     </package>
 </struts>

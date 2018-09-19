@@ -76,6 +76,11 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
 	}
 
 	@Override
+	public void saveOrUpdate(T entity) {
+		this.getHibernateTemplate().saveOrUpdate(entity);
+	}
+
+	@Override
 	public T findById(Serializable id) {
 		return this.getHibernateTemplate().get(entityClass, id);
 	}
