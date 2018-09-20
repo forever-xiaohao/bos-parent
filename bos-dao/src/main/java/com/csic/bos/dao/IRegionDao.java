@@ -13,6 +13,8 @@ package com.csic.bos.dao;
 import com.csic.bos.dao.base.IBaseDao;
 import com.csic.bos.domain.Region;
 
+import java.util.List;
+
 /**
  * <一句话功能简述><br>
  * <>
@@ -23,4 +25,5 @@ import com.csic.bos.domain.Region;
  */
 public interface IRegionDao extends IBaseDao<Region>{
 
+	public List<Region> findListByQ(String q);
 }

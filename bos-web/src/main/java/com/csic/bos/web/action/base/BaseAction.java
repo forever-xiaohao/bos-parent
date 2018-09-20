@@ -13,6 +13,7 @@ package com.csic.bos.web.action.base;
 import com.csic.bos.utils.PageBean;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import org.apache.struts2.ServletActionContext;
@@ -21,6 +22,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.List;
 
 /**
  * <一句话功能简述><br>
@@ -57,6 +59,23 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 		JsonConfig jsonConfig = new JsonConfig();
 		jsonConfig.setExcludes(excludes);
 		String json = JSONObject.fromObject(o, jsonConfig).toString();
+		ServletActionContext.getResponse().setContentType("text/json;charset=utf-8");
+		try {
+			ServletActionContext.getResponse().getWriter().print(json);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 将List对象转化为json数据，并响应到客户端页面
+	 * @param o
+	 * @param excludes
+	 */
+	public void java2Json(List o, String[] excludes) {
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.setExcludes(excludes);
+		String json = JSONArray.fromObject(o, jsonConfig).toString();
 		ServletActionContext.getResponse().setContentType("text/json;charset=utf-8");
 		try {
 			ServletActionContext.getResponse().getWriter().print(json);

@@ -92,9 +92,32 @@ public class RegionAction extends BaseAction<Region> {
 	 */
 	public String pageQuery() throws IOException {
 		regionService.pageQuery(pageBean);
-		this.java2Json(pageBean, new String[] {"currentPage","detachedCriteria","pageSize"});
+		this.java2Json(pageBean, new String[] {"currentPage","detachedCriteria","pageSize","subareas"});
 		return NONE;
 	}
+
+	/**属性驱动，接收参数q**/
+	private String q;
+	/**
+	 * 查询所有区域，写回json数据
+	 * @return
+	 */
+	public String listajax() {
+		List<Region> list = null;
+		if (StringUtils.isNotBlank(q)) {
+			list = regionService.findListByQ(q);
+		}else {
+			list = regionService.findAll();
+		}
+		this.java2Json(list, new String[]{"subareas"});
+		return NONE;
+	}
+
+
+	public void setQ(String q) {
+		this.q = q;
+	}
+
 
 
 

@@ -20,6 +20,14 @@ public class Region implements java.io.Serializable {
 	private String citycode;
 	private Set subareas = new HashSet(0);
 
+	/**
+	 * 这里不需要属性名，主要是在返回json数据时是按照方法来返回的
+	 * 因此，这里只需要提供getName()方法即可，就会返回name属性
+	 * @return
+	 */
+	public String getName() {
+		return province + " " + city +  " " + district;
+	}
 	// Constructors
 
 	/** default constructor */
