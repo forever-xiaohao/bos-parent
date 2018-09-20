@@ -12,7 +12,9 @@ package com.csic.bos.web.action;
 
 import com.csic.bos.domain.Region;
 import com.csic.bos.service.IRegionService;
+import com.csic.bos.utils.PinYin4jUtils;
 import com.csic.bos.web.action.base.BaseAction;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
@@ -67,10 +69,33 @@ public class RegionAction extends BaseAction<Region> {
 
 			//包装一个区域对象
 			Region region = new Region(id, province, city, district, postcode, null, null, null);
+			province = province.substring(0, province.length() - 1);
+			city = city.substring(0, city.length() - 1);
+			district = district.substring(0, district.length() - 1);
+			String info = province + city + district;
+			String[] headByString = PinYin4jUtils.getHeadByString(info);
+			String shortcode = StringUtils.join(headByString);
+			//城市编码----->shijiazhuang
+			String citycode = PinYin4jUtils.hanziToPinyin(city, "");
+			region.setShortcode(shortcode);
+			region.setCitycode(citycode);
 			regionList.add(region);
 		}
 		//批量保存
 		regionService.saveBatch(regionList);
 		return NONE;
 	}
+
+
+	/**
+	 * 分页查询
+	 */
+	public String pageQuery() throws IOException {
+		regionService.pageQuery(pageBean);
+		this.java2Json(pageBean, new String[] {"currentPage","detachedCriteria","pageSize"});
+		return NONE;
+	}
+
+
+
 }

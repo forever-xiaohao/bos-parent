@@ -13,6 +13,7 @@ package com.csic.bos.service.impl;
 import com.csic.bos.dao.IRegionDao;
 import com.csic.bos.domain.Region;
 import com.csic.bos.service.IRegionService;
+import com.csic.bos.utils.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,5 +42,14 @@ public class RegionServiceImpl implements IRegionService {
 		for (Region region : regionList) {
 			regionDao.saveOrUpdate(region);
 		}
+	}
+
+	/**
+	 * 区域分页查询
+	 * @param pageBean
+	 */
+	@Override
+	public void pageQuery(PageBean pageBean) {
+		regionDao.pageQuery(pageBean);
 	}
 }

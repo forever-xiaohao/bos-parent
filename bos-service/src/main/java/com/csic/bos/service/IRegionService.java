@@ -11,6 +11,7 @@
 package com.csic.bos.service;
 
 import com.csic.bos.domain.Region;
+import com.csic.bos.utils.PageBean;
 
 import java.util.List;
 
@@ -25,4 +26,6 @@ import java.util.List;
 public interface IRegionService {
 
 	public void saveBatch(List<Region> regionList);
+
+	public void pageQuery(PageBean pageBean);
 }
