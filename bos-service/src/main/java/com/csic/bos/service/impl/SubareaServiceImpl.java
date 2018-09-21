@@ -18,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * <一句话功能简述><br>
  * <实现SubareaService接口>
@@ -40,5 +42,10 @@ public class SubareaServiceImpl implements ISubareaService {
 	@Override
 	public void pageQuery(PageBean pageBean) {
 		subareaDao.pageQuery(pageBean);
+	}
+
+	@Override
+	public List<Subarea> findAll() {
+		return subareaDao.findAll();
 	}
 }

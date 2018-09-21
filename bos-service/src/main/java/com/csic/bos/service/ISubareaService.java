@@ -13,6 +13,8 @@ package com.csic.bos.service;
 import com.csic.bos.domain.Subarea;
 import com.csic.bos.utils.PageBean;
 
+import java.util.List;
+
 /**
  * <一句话功能简述><br>
  * <>
@@ -26,4 +28,6 @@ public interface ISubareaService {
 	public void save(Subarea model);
 
 	public void pageQuery(PageBean pageBean);
+
+	public List<Subarea> findAll();
 }

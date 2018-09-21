@@ -11,6 +11,7 @@
 package com.csic.bos.dao.base;
 
 import com.csic.bos.utils.PageBean;
+import org.hibernate.criterion.DetachedCriteria;
 
 import java.io.Serializable;
 import java.util.List;
@@ -30,6 +31,7 @@ public interface IBaseDao<T> {
     public void saveOrUpdate(T entity);
     public T findById(Serializable id);
     public List<T> findAll();
+    public List<T> findByCriteria(DetachedCriteria detachedCriteria);
     public void executeUpdate(String queryName, Object...objects);
     public void pageQuery(PageBean pageBean);
 }

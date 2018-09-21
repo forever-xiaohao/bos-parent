@@ -13,6 +13,8 @@ package com.csic.bos.service;
 import com.csic.bos.domain.Staff;
 import com.csic.bos.utils.PageBean;
 
+import java.util.List;
+
 /**
  * <一句话功能简述><br>
  * <>
@@ -32,4 +34,6 @@ public interface IStaffService {
 	public Staff findById(String id);
 
 	public void update(Staff staff);
+
+	public List<Staff> findListNotDelete();
 }
