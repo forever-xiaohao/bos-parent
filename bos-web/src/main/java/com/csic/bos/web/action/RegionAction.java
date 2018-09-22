@@ -61,6 +61,7 @@ public class RegionAction extends BaseAction<Region> {
 			if (rowNum == 0) {
 				continue;
 			}
+
 			String id = row.getCell(0).getStringCellValue();
 			String province = row.getCell(1).getStringCellValue();
 			String city = row.getCell(2).getStringCellValue();
@@ -73,6 +74,7 @@ public class RegionAction extends BaseAction<Region> {
 			city = city.substring(0, city.length() - 1);
 			district = district.substring(0, district.length() - 1);
 			String info = province + city + district;
+			System.out.println("info:--------------------------" + info);
 			String[] headByString = PinYin4jUtils.getHeadByString(info);
 			String shortcode = StringUtils.join(headByString);
 			//城市编码----->shijiazhuang
