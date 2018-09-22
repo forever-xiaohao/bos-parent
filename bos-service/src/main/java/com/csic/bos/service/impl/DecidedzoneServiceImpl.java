@@ -15,6 +15,7 @@ import com.csic.bos.dao.ISubareaDao;
 import com.csic.bos.domain.Decidedzone;
 import com.csic.bos.domain.Subarea;
 import com.csic.bos.service.IDecidedzoneService;
+import com.csic.bos.utils.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,5 +51,10 @@ public class DecidedzoneServiceImpl implements IDecidedzoneService{
 			//分区关联定区,维护外键
 			subarea.setDecidedzone(model);
 		}
+	}
+
+	@Override
+	public void pageQuery(PageBean pageBean) {
+		decidedzoneDao.pageQuery(pageBean);
 	}
 }

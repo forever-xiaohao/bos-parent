@@ -17,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import java.io.IOException;
+
 /**
  * <一句话功能简述><br>
  * <定区管理>
@@ -43,5 +45,14 @@ public class DecidedzoneAction extends BaseAction<Decidedzone> {
 	public String add() {
 		decidedzoneService.save(model, subareaid);
 		return LIST;
+	}
+
+	/**
+	 * 分页查询方法
+	 */
+	public String pageQuery() throws IOException {
+		decidedzoneService.pageQuery(pageBean);
+		this.java2Json(pageBean, new String[] {"currentPage","detachedCriteria","pageSize","subareas","decidedzones"});
+		return NONE;
 	}
 }

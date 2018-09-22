@@ -11,6 +11,7 @@
 package com.csic.bos.service;
 
 import com.csic.bos.domain.Decidedzone;
+import com.csic.bos.utils.PageBean;
 
 /**
  * <一句话功能简述><br>
@@ -23,4 +24,6 @@ import com.csic.bos.domain.Decidedzone;
 public interface IDecidedzoneService {
 
 	public void save(Decidedzone model, String[] subareaid);
+
+	public void pageQuery(PageBean pageBean);
 }
