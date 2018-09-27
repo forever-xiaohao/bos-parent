@@ -33,6 +33,8 @@ import java.io.IOException;
 @Controller
 @Scope("prototype")
 public class UserAction extends BaseAction<User> {
+
+
     /**
      * 属性驱动，接收也i按输入的验证码
      */
@@ -50,7 +52,8 @@ public class UserAction extends BaseAction<User> {
      * @return
      */
     public String login() {
-        //从session中获取生成的验证码
+
+	    //从session中获取生成的验证码
         String validatecode = (String) ServletActionContext.getRequest().getSession().getAttribute("key");
         //校验验证码是否输入正确
         if (StringUtils.isNotBlank(checkcode) &&  checkcode.equals(validatecode)) {
